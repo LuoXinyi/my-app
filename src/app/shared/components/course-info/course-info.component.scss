@@ -1,0 +1,27 @@
+table {
+    width: 100%;
+}
+td, th.mat-header-cell {
+    text-align: center;
+}
+
+.today {
+    background-color: rgba(38,129,255,.3);
+    color: #FFFFFF;
+}
+
+.small-p{
+    font-size: 12px;
+}
+
+.mat-header-cell{
+    width: 14%;
+}
+
+.empty-icon{
+    color: #5AA0FF;
+}
+
+.occupied-icon {
+    color: gray;
+}

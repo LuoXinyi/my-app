@@ -1,0 +1,36 @@
+<div class="header-content">
+  <div class="header-logo">
+    <!-- <img class="logo-img" src="assets/logo/someLogo.jpg" > -->
+    <button
+      mat-icon-button
+      class="logo-btn"
+    >
+      <mat-icon>commute</mat-icon>
+    </button>
+  </div>
+  <div class="header-menu">
+    <button mat-button [matMenuTriggerFor]="menu">Navi1</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Item 1-1</button>
+      <button mat-menu-item>Item 1-2</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menu">Navi2</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Item 2-1</button>
+      <button mat-menu-item>Item 2-2</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="menu">Navi3</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Item 3-1</button>
+      <button mat-menu-item>Item 3-2</button>
+    </mat-menu>
+  </div>
+  <div *ngIf="!isSignIn" class="header-user-info">
+    <button mat-button class="login-btn">SignIn</button>
+    <button mat-button class="login-btn">SignUp</button>
+  </div>
+  <div *ngIf="isSignIn" class="header-user-info">
+    <span>{{userInfo.userName}}</span>
+    <img class="profile-portraits" src="https://www.upwork.com/profile-portraits/c1VCuHUysacYPSZut4EV1hBIbxXWwy8bORGsGhFm62u81hFG6OXVMMa84Yt-VIKNG_" >
+  </div>
+</div>

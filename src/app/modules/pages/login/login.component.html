@@ -1,0 +1,47 @@
+<form class="login-form" [formGroup]="myForm" (ngSubmit)="submit()">
+  <p>
+    <mat-form-field>
+      <mat-label>UserName</mat-label>
+      <input
+        matInput
+        type="text"
+        id="name"
+        formControlName="name"
+        placeholder="please enter user name"
+        [matTooltip]="name.invalid ? 'username is required!' : ''"
+        matTooltipClass="example-tooltip-red"
+        matTooltipPosition="above"
+        #usernameTooltip="matTooltip"
+        required
+        [(ngModel)]="userName"
+        (blur)="defaultBlur(usernameTooltip,name)"
+      />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        id="password"
+        formControlName="password"
+        placeholder="please enter password"
+        required
+        [(ngModel)]="password"
+      />
+    </mat-form-field>
+  </p>
+  <div *ngIf="loginFail">username or password is incorrect!</div>
+  <button mat-raised-button class="login-button" type="submit" (click)="usernameTooltip.show()">Login</button>
+  <div
+    *ngIf="name.invalid && (name.dirty || name.touched)"
+    class="alert alert-danger"
+  >
+    <div *ngIf="name.errors?.required">Name is required.</div>
+    <div *ngIf="name.errors?.minlength">
+      Name must be at least 4 characters long.
+    </div>
+  </div>
+</form>
+<app-shield [loadingFlag]="loadingFlag"></app-shield>

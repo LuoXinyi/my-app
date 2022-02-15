@@ -1,0 +1,26 @@
+<form class="login-form" [formGroup]="myForm" (ngSubmit)="submit()">
+  <p>
+    <mat-form-field>
+      <mat-label>UserName</mat-label>
+      <input matInput type="text" id="name" formControlName="name" required />
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-radio-group formControlName="radio">
+      <mat-radio-button
+        *ngFor="let radio of radioGroupData; let radioNum = index"
+        value="{{ radioNum }}"
+        >{{ radio.name }}</mat-radio-button
+      >
+    </mat-radio-group>
+  </p>
+  <p formGroupName="checkboxGroup">
+    <mat-checkbox formControlName="checkbox1">checkbox1</mat-checkbox>
+    <mat-checkbox formControlName="checkbox2">checkbox2</mat-checkbox>
+    <mat-checkbox formControlName="checkbox3">checkbox3</mat-checkbox>
+  </p>
+  <button mat-raised-button class="login-button" type="submit">Submit</button>
+  <div *ngIf="myForm.invalid && (myForm.dirty || myForm.touched)">
+    Name is required.
+  </div>
+</form>
